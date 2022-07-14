@@ -1,12 +1,18 @@
 const express = require("express");
 const logger = require("./logger");
 const helmet = require("helmet");
+const config = require("config");
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger(app));
 app.use(helmet());
+
+console.log(config.name);
+console.log(config.url);
+console.log(config.user);
+console.log(config.debug);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
@@ -73,6 +79,6 @@ function validateCourses(courses) {
   return schema.validate(courses);
 }
 
-app.listen(3000, () => {
-  console.log("PORT:", process.env.PORT || 3000);
+app.listen(config.port, () => {
+  console.log("PORT:", config.port || 3000);
 });
