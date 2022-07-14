@@ -1,7 +1,12 @@
 const express = require("express");
+const logger = require("./logger");
+const helmet = require("helmet");
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(logger(app));
+app.use(helmet());
 
 app.get("/", (req, res) => {
   res.send("Hello World");
@@ -22,6 +27,7 @@ app.get("/api/courses/:id", (req, res) => {
 });
 
 app.post("/api/courses", (req, res) => {
+  console.log(req.body);
   const { error } = validateCourses(req.body);
   if (error) {
     res.status(400).send(error.message);
