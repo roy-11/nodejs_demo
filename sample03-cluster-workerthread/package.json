@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "pm2 start app.js -i 0"
+    "start": "pm2 start app.js -i 0",
+    "stop": "pm2 stop all"
   },
   "keywords": [],
   "author": "",
