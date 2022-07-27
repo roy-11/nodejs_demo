@@ -1,0 +1,4 @@
+{
+  "debug": "DEBUG",
+  "env": "NODE_ENV"
+}
