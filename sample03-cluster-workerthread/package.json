@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "pm2 start app.js -i 0",
-    "stop": "pm2 stop all"
+    "stop": "pm2 delete all"
   },
   "keywords": [],
   "author": "",
